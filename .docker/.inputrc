@@ -1,0 +1,3 @@
+# Bind up and down cursor keys to incrementally search through the history
+"\e[A": history-search-backward
+"\e[B": history-search-forward
