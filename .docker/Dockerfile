@@ -24,5 +24,3 @@ RUN apt-get install -yq bash-completion
 
 COPY .docker/.bashrc /root/.bashrc
 COPY .docker/.inputrc /root/.inputrc
-
-# TODO: install json importer https://stackoverflow.com/a/70357119

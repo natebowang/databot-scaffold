@@ -1,27 +1,25 @@
 services:
   bot:
-    image: databot-bot
-    container_name: local-databot-bot
-    hostname: local-databot-bot
-    depends_on:
-      - store
     build:
       dockerfile: ./Dockerfile
       target: bot
+    depends_on:
+      - store
+    image: databot-bot
+    container_name: local-databot-bot
+    hostname: local-databot-bot
     working_dir: /databot/bot/
     volumes:
       - ..:/databot/
-    environment:
-      - TZ=Pacific/Auckland
     command: [ "sleep", infinity ]
 
   store:
-    image: databot-store
-    container_name: local-databot-store
-    hostname: local-databot-store
     build:
       dockerfile: ./.docker/Dockerfile
       target: timescaledb
+    image: databot-store
+    container_name: local-databot-store
+    hostname: local-databot-store
     restart: always
     environment:
       - POSTGRES_USER=pgroot

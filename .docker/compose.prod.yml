@@ -1,31 +1,27 @@
 services:
   infra:
-    image: databot-infra
-    container_name: prod-databot-infra
-    hostname: prod-databot-infra
-    depends_on:
-      - store
     build:
       dockerfile: ./Dockerfile
       target: infra
+    image: databot-infra
+    container_name: prod-databot-infra
+    hostname: prod-databot-infra
     working_dir: /databot/infra/
     volumes:
       - ..:/databot/
-    environment:
-      - TZ=Pacific/Auckland
     command: [ "sleep", infinity ]
 
   store:
-    image: databot-store
-    container_name: prod-databot-store
-    hostname: prod-databot-store
     build:
       dockerfile: ./.docker/Dockerfile
       target: timescaledb
+    image: databot-store
+    container_name: prod-databot-store
+    hostname: prod-databot-store
     restart: always
     environment:
       - POSTGRES_USER=pgroot
-      - POSTGRES_PASSWORD=pgroot
+      - POSTGRES_PASSWORD=pgroot # TODO: import from secret
     ports:
       - 5667:5666
     working_dir: /databot/store/

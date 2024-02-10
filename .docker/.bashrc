@@ -6,14 +6,13 @@ alias ll="ls --color=auto -lh"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias n="npm run"
-alias m="make"
 
 shopt -s histappend
 set -o vi
 
-# ud 10  cd up to 10 dirs
-# ud <dirname> cd up to <dirname>
+# Usage
+# `ud 10` cd up to 10 dirs
+# `ud <part-of-dirname>` cd up to <dirname>
 function ud() {
   case $1 in
     *[!0-9]*)                                          # if no a number

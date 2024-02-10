@@ -1,14 +1,13 @@
-# Logs
-logs/
-*.log
-log
+# Logs: Keep an empty log folder but ignore contents
+*/log/*
+!*/log/.gitkeep
+
+# NodeJS
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
-# NodeJS
-node_modules/
 
 # DB
 store/.docker/localData/
@@ -19,4 +18,6 @@ terraform.tfstate
 
 # IDE
 .idea/
+.vscode/
+.history/
 *.swp
