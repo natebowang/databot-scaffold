@@ -13,7 +13,7 @@ CYAN := "\e[36m$(SPLITTER) %s $(SPLITTER)\e[0m\n"
 dev:
 	@printf $(CYAN) "Starting local databot using test data"
 	@$(DC_LOCAL) up -d
-	@$(DC_LOCAL) exec bot bash -c "npm start | pino-pretty --colorize | tee log/bot.log"
+	@$(DC_LOCAL) exec bot bash -c "npm start | pino-pretty | tee -a log/bot.log"
 
 test:
 	@npm test --prefix ./bot/
