@@ -1,3 +1,6 @@
-import {logger} from "./shared/logger/main";
+import { logger } from './shared/logger/main'
+import { setInterval } from 'timers'
 
-logger.trace('Hello World')
+setInterval(() => {
+  logger.trace('Hello World')
+}, 1000)

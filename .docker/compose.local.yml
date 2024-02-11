@@ -8,6 +8,9 @@ services:
     image: databot-bot
     container_name: local-databot-bot
     hostname: local-databot-bot
+    environment:
+      - ENV_NAME=local
+      - LOG_LEVEL=trace
     working_dir: /databot/bot/
     volumes:
       - ..:/databot/
