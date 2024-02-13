@@ -1,7 +1,8 @@
 services:
   infra:
     build:
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./.docker/Dockerfile
       target: infra
     image: databot-infra
     container_name: prod-databot-infra
@@ -13,6 +14,7 @@ services:
 
   store:
     build:
+      context: ../
       dockerfile: ./.docker/Dockerfile
       target: timescaledb
     image: databot-store

@@ -1,7 +1,8 @@
 services:
   bot:
     build:
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./.docker/Dockerfile
       target: bot
     depends_on:
       - store
@@ -18,6 +19,7 @@ services:
 
   store:
     build:
+      context: ../
       dockerfile: ./.docker/Dockerfile
       target: timescaledb
     image: databot-store

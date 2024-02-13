@@ -12,7 +12,7 @@ CYAN := "\e[36m$(SPLITTER) %s $(SPLITTER)\e[0m\n"
 ## Local environment
 dev:
 	@printf $(CYAN) "Starting local databot using test data"
-	@$(DC_LOCAL) up -d
+	@$(DC_LOCAL) up -d --build
 	@$(DC_LOCAL) exec bot bash -c "npm start | pino-pretty | tee -a log/bot.log"
 
 test:
@@ -24,7 +24,7 @@ testOne:
 ## Prod environment
 deploy:
 	@printf $(YELLOW) "Deploying AWS databot using actual data"
-	@docker compose -f .docker/compose.prod.yml up -d
+	@$(DC_PROD) up -d --build
 
 start:
 	@printf $(CYAN) "Starting AWS databot using actual data"
