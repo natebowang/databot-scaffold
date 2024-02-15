@@ -1,5 +1,8 @@
 DC_LOCAL := docker compose -f .docker/compose.local.yml
 DC_PROD := docker compose -f .docker/compose.prod.yml
+START_LOGROTATE := script/logrotate.sh
+START_BOT := npm start
+TAIL_LOG := sleep 3 && tail -f $$LOG_FILE_PATH_FROM_BOT | pino-pretty
 
 # [More colors](https://www.shellhacks.com/bash-colors/)
 SPLITTER := ---------------
@@ -13,7 +16,7 @@ CYAN := "\e[36m$(SPLITTER) %s $(SPLITTER)\e[0m\n"
 dev:
 	@printf $(CYAN) "Starting local databot using test data"
 	@$(DC_LOCAL) up -d --build
-	@$(DC_LOCAL) exec bot bash -c "npm start | pino-pretty | tee -a log/bot.log"
+	@$(DC_LOCAL) exec bot bash -c '$(START_LOGROTATE) & $(START_BOT) & $(TAIL_LOG)'
 
 test:
 	@npm test --prefix ./bot/

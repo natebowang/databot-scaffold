@@ -12,6 +12,7 @@ services:
     environment:
       - ENV_NAME=local
       - LOG_LEVEL=trace
+      - LOG_FILE_PATH_FROM_BOT=./log/bot.json
     working_dir: /databot/bot/
     volumes:
       - ..:/databot/
