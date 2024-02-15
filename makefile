@@ -21,6 +21,9 @@ test:
 testOne:
 	@npm test --prefix ./bot/ -- main.test.ts
 
+cleanLog:
+	@rm -rf bot/log/.*audit.json && rm -rf bot/log/bot.json*
+
 ## Prod environment
 deploy:
 	@printf $(YELLOW) "Deploying AWS databot using actual data"

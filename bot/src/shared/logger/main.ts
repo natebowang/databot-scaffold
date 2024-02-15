@@ -2,6 +2,8 @@ import DailyRotateFile from 'winston-daily-rotate-file'
 import { createLogger, format, transports } from 'winston'
 import { envVar } from '../config/envVar/main'
 
+const isProd = envVar.ENV_NAME === 'prod'
+
 export const logger = createLogger({
   level: envVar.LOG_LEVEL,
   transports: [
@@ -21,10 +23,10 @@ export const logger = createLogger({
       datePattern: 'YYYY-MM-DD-HH',
       filename: envVar.LOG_FILE_PATH_FROM_BOT,
       format: format.combine(format.timestamp(), format.json()),
-      maxFiles: '3d',
+      maxFiles: isProd ? '3d' : '10',
       maxSize: '1m',
-      utc: true,
-      zippedArchive: true,
+      utc: isProd,
+      zippedArchive: isProd,
     }),
   ],
 })
