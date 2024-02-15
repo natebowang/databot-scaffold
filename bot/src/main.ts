@@ -4,5 +4,9 @@ import { setInterval } from 'timers'
 let t = 0
 
 setInterval(() => {
-  logger.trace({ t: t++ }, 'Hello World')
-}, 10)
+  logger.http(`${t++} Hello World`)
+  logger.warn(`${t++} Hello World`)
+  logger.debug(`${t++} Hello World`)
+  logger.error(`${t++} Hello World`)
+  logger.info(`${t++} Hello World`)
+}, 40)

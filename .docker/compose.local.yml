@@ -11,8 +11,9 @@ services:
     hostname: local-databot-bot
     environment:
       - ENV_NAME=local
-      - LOG_LEVEL=trace
+      - LOG_LEVEL=silly
       - LOG_FILE_PATH_FROM_BOT=./log/bot.json
+      - TZ=Pacific/Auckland # Your timezone
     working_dir: /databot/bot/
     volumes:
       - ..:/databot/

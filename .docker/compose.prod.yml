@@ -7,6 +7,8 @@ services:
     image: databot-infra
     container_name: prod-databot-infra
     hostname: prod-databot-infra
+    environment:
+      - TZ=Pacific/Auckland # Your timezone
     working_dir: /databot/infra/
     volumes:
       - ..:/databot/
