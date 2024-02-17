@@ -13,7 +13,8 @@ CYAN := "\e[36m$(SPLITTER) %s $(SPLITTER)\e[0m\n"
 dev:
 	@printf $(CYAN) "Starting local databot using test data"
 	@$(DC_LOCAL) up -d --build
-	@$(DC_LOCAL) exec bot bash -c 'npm start'
+	@$(DC_LOCAL) exec store bash -c 'python3 src/importJson'
+	@#$(DC_LOCAL) exec bot bash -c 'npm start'
 
 test:
 	@npm test --prefix ./bot/
@@ -28,6 +29,7 @@ cleanLog:
 deploy:
 	@printf $(YELLOW) "Deploying AWS databot using actual data"
 	@$(DC_PROD) up -d --build
+	@$(DC_PROD) exec store bash -c 'python3 src/importJson'
 
 start:
 	@printf $(CYAN) "Starting AWS databot using actual data"

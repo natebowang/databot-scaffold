@@ -21,3 +21,6 @@ terraform.tfstate
 .vscode/
 .history/
 *.swp
+
+# Prod secret
+prod.sh

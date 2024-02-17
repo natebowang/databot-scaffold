@@ -14,7 +14,7 @@ FROM base as infra
 RUN pacman -Syu --noconfirm aws-cli terraform rsync
 RUN pacman -S --clean --noconfirm
 
-FROM timescale/timescaledb-ha:pg16 as timescaledb
+FROM timescale/timescaledb-ha:pg16 as store
 
 USER root
 
