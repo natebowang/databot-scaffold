@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Pacific/Auckland # Your timezone
     env_file:
-      - ../bot/script/env/local.sh
+      - ../bot/shell/env/local.sh
     working_dir: /databot/bot/
     volumes:
       - ..:/databot/
@@ -28,7 +28,7 @@ services:
     hostname: local-databot-store
     restart: always
     env_file:
-      - ../store/script/env/local.sh
+      - ../store/shell/env/local.sh
     ports:
       - 5667:5666
     working_dir: /databot/store/

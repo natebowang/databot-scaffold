@@ -7,7 +7,7 @@ COPY ./.docker/.bashrc /root/.bashrc
 COPY ./.docker/.inputrc /root/.inputrc
 
 FROM base as bot
-COPY ./bot/script/init.sh /init.sh
+COPY ./bot/shell/init.sh /init.sh
 RUN sh /init.sh
 
 FROM base as infra
@@ -24,5 +24,5 @@ RUN apt-get install -yq bash-completion
 COPY ./.docker/.bashrc /root/.bashrc
 COPY ./.docker/.inputrc /root/.inputrc
 
-COPY ./store/script/init.sh /init.sh
+COPY ./store/shell/init.sh /init.sh
 RUN sh /init.sh

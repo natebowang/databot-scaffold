@@ -24,7 +24,7 @@ services:
     hostname: prod-databot-store
     restart: always
     env_file:
-      - ../store/script/env/prod.sh
+      - ../store/shell/env/prod.sh
     ports:
       - 5667:5666
     working_dir: /databot/store/

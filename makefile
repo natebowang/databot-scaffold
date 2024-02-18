@@ -13,7 +13,7 @@ CYAN := "\e[36m$(SPLITTER) %s $(SPLITTER)\e[0m\n"
 dev:
 	@printf $(CYAN) "Starting local databot using test data"
 	@$(DC_LOCAL) up -d --build
-	@$(DC_LOCAL) exec store bash -c 'python3 src/import_json'
+	@$(DC_LOCAL) exec store bash -c 'python3 src/importJson'
 	@#$(DC_LOCAL) exec bot bash -c 'npm start'
 	@#$(DC_LOCAL) exec store bash
 
