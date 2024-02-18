@@ -24,11 +24,12 @@ test:
 testOne:
 	@$(DC_LOCAL) exec bot bash -c 'npm test -- main.test.ts'
 
-rmBotLog:
-	@rm -rf bot/log/.*audit.json && rm -rf bot/log/bot.json*
-
-rmStoreLog:
-	@rm -rf store/log/.*audit.json && rm -rf store/log/bot.json*
+reset:
+	@rm -rf bot/log/.*audit.json
+	@rm -rf bot/log/bot.json*
+	@rm -rf store/log/.*audit.json
+	@rm -rf store/log/bot.json*
+	@$(DC_LOCAL) rm --stop --force
 
 ## Prod environment
 deploy:
