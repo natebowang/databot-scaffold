@@ -7,8 +7,8 @@ COPY ./.docker/.bashrc /root/.bashrc
 COPY ./.docker/.inputrc /root/.inputrc
 
 FROM base as bot
-COPY ./bot/script/initBot.sh /initBot.sh
-RUN sh /initBot.sh
+COPY ./bot/script/init.sh /init.sh
+RUN sh /init.sh
 
 FROM base as infra
 RUN pacman -Syu --noconfirm aws-cli terraform rsync
@@ -23,3 +23,6 @@ RUN apt-get install -yq bash-completion
 
 COPY ./.docker/.bashrc /root/.bashrc
 COPY ./.docker/.inputrc /root/.inputrc
+
+COPY ./store/script/init.sh /init.sh
+RUN sh /init.sh
