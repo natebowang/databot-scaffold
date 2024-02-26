@@ -9,6 +9,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Python
+.pytest_cache/
+__pycache__/
+
 # DB
 store/.docker/localData/
 
