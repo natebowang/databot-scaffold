@@ -24,3 +24,7 @@ git clone https://github.com/natebowang/hawking.git
 ### docker
 
 [Install docker engine](https://docs.docker.com/engine/install/)
+
+
+## TODO
+[Turn on GPU in docker compose](https://docs.docker.com/compose/gpu-support/)
